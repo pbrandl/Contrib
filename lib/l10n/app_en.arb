@@ -1,0 +1,792 @@
+{
+    "current_language": "English",
+    "@current_language": {
+        "description": "The current language"
+    },
+
+    "language": "Language",
+    "@language": {
+        "description": "The Language setting."
+    },
+
+    "language_desc": "English, German, French",
+    "@language_desc": {
+        "description": "Description of the lanugage settings."
+    },
+
+    "nav_commons": "Home",
+    "@nav_commons": {
+        "description": "Navigation description of screen Commons."
+    },
+
+    "nav_map": "Map",
+    "@nav_map": {
+        "description": "Navigation description of screen Map."
+    },
+
+    "title_search": "Search",
+    "@search_title": {
+        "description": "Search title"
+    },
+
+    "subtitle_settings": "Settings",
+    "@subtitle_settings": {
+        "description": "Subtitle in profile shell."
+    },
+
+    "title_commons": "Commons",
+    "@search_title": {
+        "description": "Commons title"
+    },
+
+    "title_map": "Map",
+    "@search_title": {
+        "description": "Map title"
+    },
+
+    "title_profile": "Profile",
+    "@search_title": {
+        "description": "Profile title"
+    },
+
+    "btn_cancel": "Cancel",
+    "@cancel_btn": {
+        "description": "A button that cancels the current action."
+    },
+
+    "btn_confirm": "Confirm",
+    "@confirm_btn": {
+        "description": "A button that confirms the current action."
+    },
+
+    "btn_contribute": "Contribute",
+    "@btn_contribute": {
+        "description": "A button that links to the contribution widget the current action."
+    },
+
+    "btn_recall": "Recall",
+    "@btn_contribute": {
+        "description": "A button that undoes the users contribution."
+    },
+
+    "appTitle": "Commons",
+    "@appTitle": {
+        "description": "App title"
+    },
+
+    "settings_language": "Language",
+     "@settings_language": {
+        "description": "A list tile title in profile / settings."
+    },
+
+    "settings_appreance": "Appearance",
+     "@settings_appreance": {
+        "description": "A list tile title in profile / settings."
+    },
+
+    "my_contribution": "My Contribution",
+    "@my_contribution": {
+        "description": "A subtitle for the section 'my contributions' in Commons detail."
+    },
+
+    "subtitle_description": "Description",
+    "@subtitle_description": {
+        "description": "A subtitle for the section 'Description' in Commons detail."
+    },
+
+    "subtitle_favorites": "Favorites",
+    "@subtitle_favorites": {
+        "description": "A subtitle for the section 'Favorites' on the dashboard."
+    },
+    
+    "signup": "Sign up",
+    "@signup": {
+        "description": "A button, text button or list tile that triggers the sign up."
+    },
+
+    "login": "Login",
+    "@login": {
+        "description": "A button, text button or list tile that triggers the user's login."
+    },
+
+    "logout": "Log out",
+    "@logout": {
+        "description": "A button, text button or list tile that triggers the user's logout."
+    },
+
+    "forgot_password": "Forgot your password?",
+    "@forgot_password": {
+        "description": "Text to indicate password recovery."
+    },
+
+    "bank_account": "Bank Account",
+    "@bank_account": {
+        "description": "Bank account title."
+    },
+
+    "bank_name": "Bank Name",
+    "@bank_name": {
+        "description": "Bank name."
+    },
+
+    "iban": "IBAN",
+    "@iban": {
+        "description": "IBAN."
+    },
+
+    "bic": "BIC",
+    "@bic": {
+        "description": "BIC."
+    },
+
+    "contribution_recall_error": "An error occured during recalling your contribution. Please try again.",
+    "@contribution_recall_error": {
+        "description": "An error that pops ups in case the contribution deletion failed."
+    },
+
+    "new_common_describtion": "Edit your own Commons. Choose a name and describe your project. All details given can be edited lateron.",
+    "@new_common_describtion": {
+        "description": "Describes how the user can create their Commons."
+    },
+
+    "category": "Category",
+    "@category": {
+        "description": "Category of Commons."
+    },
+    
+    "submit": "Submit",
+    "@submit": {
+        "description": "Submit button text."
+    },
+
+    "name": "Name",
+    "@name": {
+        "description": "Name."
+    },
+
+    "depositor": "Depositor",
+    "@depositor": {
+        "description": "Depositor."
+    },
+
+    "password": "Password",
+    "@password": {
+        "description": "Password."
+    },
+
+    "mail": "E-Mail",
+    "@mail": {
+        "description": "E-Mail."
+    },
+
+    "contributions": "Contributions",
+    "@contributions": {
+        "description": "Plural of contribution."
+    },
+
+    "contribution": "Contribution",
+    "@contribution": {
+        "description": "Singular of contribution."
+    },
+
+    "contribute_info": "Contribute to the current round by clicking on 'contribute'. Each new contribution is added to your current one. Click on 'reset' to reset your contribution to 0. In the chart you can see the total contribution and follow the progress towards the contribution target (top right).",
+    "@contribute_info": {
+        "description": "A text describing how contributing process on a Commons screen works."
+    },
+
+    "target": "Target",
+    "@target": {
+        "description": "A text describing the target of the current round."
+    },
+
+    "round": "Rounds",
+    "@target": {
+        "description": "A text describing the target of the current round."
+    },
+
+    "edit": "Edit",
+    "@edit": {
+        "description": "A text indicating an action to edit."
+    },
+
+    "theme": "Theme",
+    "@theme": {
+        "description": "The theme (light or dark) in which the app is viewed."
+    },
+
+    "theme_desc": "Dark or light mode",
+    "@theme_desc": {
+        "description": "Description for the theme settings."
+    },
+
+    "num_round": "Round #{count}",
+    "@num_round": {
+        "description": "Numerization of rounds.",
+        "placeholders": {
+            "count": {
+                "type": "num",
+                "format": "compact"
+            }
+        }
+    },
+
+    "total_contrib": "Total contributions",
+    "@total_contrib": {
+        "description": "Sum of all contributions on the dashboard."
+    },
+
+    "new_common_btn": "New Commons",
+    "@new_common_btn": {
+        "description": "Action button to create a new Commons."
+    },
+
+    "hello": "Hello {username}",
+    "@hello": {
+        "description": "A welcome message",
+        "placeholders": {
+            "username": {
+                "type": "String"
+            }
+        }
+    },
+
+    "logout_subtitle": "See you later!",
+    "@logout_subtitle": {
+        "description": "Displayed in logout tile."
+    },
+
+    "dialog_logout_header": "Do you really want to log out?",
+    "@dialog_logout_header": {
+        "description": "A dialog with this quesion as header."
+    },
+
+    "agriculture": "Agriculture",
+    "@agriculture": {
+        "description": "Agriculture - a common category."
+    },
+
+    "spaces": "Spaces",
+    "@spaces": {
+        "description": "Spaces - a common category."
+    },
+
+    "shops": "Shops",
+    "@shops": {
+        "description": "Shops - a common category."
+    },
+
+    "events": "Events",
+    "@events": {
+        "description": "Events - a common category."
+    },
+
+    "travel": "Travel",
+    "@travel": {
+        "description": "Travel - a common category."
+    },
+
+    "education": "Education",
+    "@education": {
+        "description": "Education - a common category."
+    },
+
+    "others": "Others",
+    "@others": {
+        "description": "Others - a common  category."
+    },
+
+    "administraion": "Administration",
+    "@administraion": {
+        "description": "Administration."
+    },
+
+    "stop": "Stop",
+    "@stop": {
+        "description": "Stop the current round."
+    },
+
+    "start": "Start",
+    "@start": {
+        "description": "Start the current round."
+    },
+
+    "download": "Download",
+    "@download": {
+        "description": "Download the current round."
+    },
+
+    "new_round": "New Round",
+    "@new_round": {
+        "description": "Add a new round."
+    },
+
+    "my_contribution": "My Contribution",
+    "@my_contribution": {
+        "description": "My Contribution - headline."
+    },
+
+    "show_all" : "Show all",
+    "@show_all": {
+        "description": "Show all - button to show all data."
+    },
+
+    "show_current" : "Show current",
+    "@show_current": {
+        "description": "Show current - button to show current data."
+    },
+
+    "download_error" : "Downloading failed. Please try again.",
+    "@download_error": {
+        "description": "Error shown on failed download."
+    },
+
+    "recall": "Recall",
+    "@recall": {
+        "description": "Others as category."
+    },
+
+    "creating_round" : "Creating Round ...",
+    "@creating_round": {
+        "description": "Shown on loading indicator."
+    },
+
+    "next_target" : "Next round's target",
+    "@next_target": {
+        "description": "A headline on the key pad for the next round."
+    },
+
+    "new_round_error" : "Creating new round failed. Please try again.",
+    "@new_round_error": {
+        "description": "Displayed if there is an error on new round creation."
+    },
+
+    "round_recall_error": "An error occured during deletion. Please try again.",
+    "@round_recall_error": {
+        "description": "An error that pops ups in case the round deletion failed."
+    },
+
+    "round_recall_blocked" : "Cannot delete round.",
+    "@round_recall_blocked": {
+        "description": "An error that pops ups in case the round recall is blocked."
+    },
+
+    "round_status_error" : "Cannot change round status. Please try again.",
+    "@round_status_error": {
+        "description": "Shows an error of when status change failed."
+    },
+
+    "round_started" : "Round has started.",
+    "@round_started": {
+        "description": "Success message of status change."
+    },
+
+    "round_stopped" : "Round has stopped.",
+    "@round_stopped": {
+        "description": "Success message of status change."
+    },
+
+    "round_is_inactive" : "Round is currently paused.",
+    "@round_is_inactive": {
+        "description": "Message of round status."
+    },
+
+    "round_not_started" : "Round did not start yet.",
+    "@round_not_started": {
+        "description": "Message of round status."
+    },
+
+    "add_contribution" : "Add to your contribution",
+    "@add_contribution": {
+        "description": "Keypad header of contribution input."
+    },
+
+    "download_tooltip" : "Current round as CSV file.",
+    "@download_tooltip": {
+        "description": "Tooltip of button to download current round."
+    },
+
+    "newest_commons" : "New Commons",
+    "@newest_commons": {
+        "description": "Newst Common headline in discover."
+    },
+
+    "round_started" : "New round has started.",
+    "@round_started": {
+        "description": "New round has started."
+    },
+
+    "round_reset" : "Round deleted.",
+    "@round_reset": {
+        "description": "On success."
+    },
+
+    "contribution_reset" : "Contribution recalled.",
+    "@contribution_reset": {
+        "description": "Contribution recalled."
+    },
+
+    "nav" : "Navigation",
+    "@nav": {
+        "description": "Headline for the navigation/menu."
+    },
+
+    "dialog_round_reset_header" : "Do you want to delete this round?",
+    "@dialog_round_reset_header": {
+        "description": "Headline for the confirmation dialog."
+    },
+
+    "logging_out" : "Logging out ...",
+    "@logging_out": {
+        "description": "Shows during the request of logging out."
+    },
+
+    "download_current_round": "Download round",
+    "@download_current_round": {
+        "description": "Represents the action to download the current round."
+    },
+
+    "start_new_round": "Start a new round",
+    "@start_new_round": {
+        "description": "Represents the action to start a new round."
+    },
+
+    "reset_current_round": "Delete round",
+    "@reset_current_round": {
+        "description": "Represents the action to reset the current round."
+    },
+
+    "currently_active": "Currently active",
+    "@currently_active": {
+        "description": "Indicates that something is currently active."
+    },
+
+    "currently_inactive": "Currently inactive",
+    "@currently_inactive": {
+        "description": "Indicates that something is currently inactive."
+    },
+
+    "switch_round_status": "Switch round status",
+    "@switch_round_status": {
+        "description": "Represents the action to switch the status of a round."
+    },
+
+    "optional_information": "Optional Information",
+    "@optional_information": {
+        "description": "Represents optional information for a new Commons."
+    },
+
+    "description_optional_information": "The following information are optional. If you provide details about your geo location it will be marked on the map. Furthermore, you are free to choose a logo, category and a link to your website.",
+    "@description_optional_information": {
+        "description": "Represents the description für optional information for a new Commons."
+ },
+
+    "logo_size": "Only png in of max. 50x50 pixels.",
+    "@logo_size": {
+        "description": "Represents the max. size of the logo upload."
+    },
+
+    "describtion_commons": "Describe your Commons and the aim of the contribution...",
+    "@describtion_commons": {
+        "description": "Represents the desciribtion of a new Commons."
+    },
+
+    "latitude_coordinates": "Latitute",
+    "@latitude_coordinates": {
+        "description": "Represents the latitude of the coordinates."
+    },
+    
+    "coordinates_error_message": "Please enter a number from -90 to 90",
+    "@coordinates_error_message": {
+        "description": "Represents a error message for the coordinates indications."
+    },
+    
+    "longitude_coordinates": "Longitude",
+    "@latitude_coordinates": {
+        "description": "Represents the longitude of the coordinates."
+    },
+    
+    "website_commons": "Website",
+    "@website_commons": {
+        "description": "Represents the possibility to link the website of the Commons."
+    },
+    
+    "creating_common": "Creating Commons...",
+    "@creating_common": {
+        "description": "Represents the possibility to link the website of the Commons."
+    },
+     
+    "required_information": "Required Information",
+    "@required_information": {
+        "description": "Represents the required information to creat a new Commons."
+    },
+   
+    "commons_name": "Name",
+    "@commons_name": {
+        "description": "Represents the name of the new Commons."
+    },
+
+    "select_category": "Select a category",
+    "@select_category": {
+        "description": "Represents the selection of a category."
+    },
+ 
+    "select_category_list": "Select a category from the provided list.",
+    "@select_category_list": {
+        "description": "Represents the selection of a category from the provided list."
+    },
+   
+    "describtion_min_limit": "Please enter a describtion of #{count} characters.",
+    "@describtion_limit": {
+    "description": "Shows a message if describtion min. limit not reached.",
+        "placeholders": {
+            "count": {
+            "type": "num",
+            "format": "compact"
+            }
+        }
+    },
+    
+    "describtion_max_limit": "Describtion only allows #{count} characters.",
+    "@describtion_limit": {
+    "description": "Shows a message if describtion max. limit reached.",
+        "placeholders": {
+            "count": {
+            "type": "num",
+            "format": "compact"
+            }
+        }
+    },
+
+    "name_min_limit": "Please enter a name of min. #{count} characters.",
+    "@name_min_limit": {
+        "description": "Represents the min. limit of the name.",
+        "placeholders": {
+            "count": {
+            "type": "num",
+            "format": "compact"
+            }
+        }
+    },
+
+    "name_max_limit": "Name must be filled and less than #{count} characters.",
+    "@name_max_limit": {
+        "description": "Represents the max. limit of the name.",
+        "placeholders": {
+            "count": {
+            "type": "num",
+            "format": "compact"
+            }
+        }
+    },
+
+    "system": "System",
+    "@system": {
+        "description": "Option to use the system's theme."
+    },
+
+    "light": "Light",
+    "@light": {
+        "description": "Option to use the light theme."
+    },
+
+    "dark": "Dark",
+    "@dark": {
+        "description": "Option to use the dark theme."
+    },
+    
+    "delete": "Delete",
+    "@delete": {
+        "description": "Delete option."
+    },
+
+    "common_delete_error": "Failed to delete Commons.",
+    "@common_delete_error": {
+        "description": "Delete option."
+    },
+
+    "no_contributions": "No contributions yet.",
+    "@no_contributions": {
+        "description": "No contributions option."
+    },
+
+    "discover_start_contributing": "Discover Commons and start contributing ...",
+    "@discover_start_contributing": {
+        "description": "Discover and start contributing option."
+    },
+
+    "delete_common_confirm": "Do you want to delete {name}?",
+    "@delete_common_confirm": {
+        "description": "Delete Commons confirmation."
+    },
+
+    "start_own_common": "Start your own Commons!",
+    "@start_own_common": {
+        "description": "Prompt to start a new Common."
+    },
+
+    "save_favorites": "Save favorites for later.",
+    "@save_favorites": {
+        "description": "Option to save favorites for later access."
+    },
+
+    "discover_on_map": "To find new ones, discover them on the map!",
+    "@discover_on_map": {
+        "description": "Instruction to discover new items on the map."
+    },
+
+    "arbitrary_error": "An error occurred. Please reload. {error}",
+    "@arbitrary_error": {
+        "description": "A general error message with a prompt to reload and a placeholder {error} for specific error details."
+    },
+
+    "create_own_commons": "Create your own Commons",
+    "@create_own_commons": {
+        "description": "Prompt to create new Commons."
+    },
+
+    "copy_link": "Copy link",
+    "@copy_link": {
+        "description": "Option to share the link."
+    },
+
+    "link_copied": "Link copied to clipboard",
+    "@link_copied": {
+        "description": "Message indicating the link was copied."
+    },
+
+    "add_to_favorites": "Added to favorites",
+    "@add_to_favorites": {
+        "description": "Option to add to favorites."
+    },
+
+    "remove_from_favorites": "Removed from favorites",
+    "@remove_from_favorites": {
+        "description": "Option to remove from favorites."
+    },
+
+    "creating_commons": "Creating Commons",
+    "@creating_commons": {
+        "description": "Status message while Commons is being created."
+    },
+
+    "removing_from_favorites_failed": "Removing from favorites failed.",
+    "@removing_from_favorites_failed": {
+        "description": "Error message for when removing from favorites fails."
+    },
+
+    "adding_to_favorites_failed": "Adding to favorites failed.",
+    "@adding_to_favorites_failed": {
+        "description": "Error message for when adding to favorites fails."
+    },
+
+    "show_qr_code": "Show QR code",
+    "@show_qr_code": {
+        "description": "Option to display the QR code."
+    },
+
+    "go_to_website": "Go to Website",
+    "@go_to_website": {
+        "description": "Option to navigate to the website."
+    },
+
+    "could_not_load_website": "Could not load website",
+    "@could_not_load_website": {
+        "description": "Error message when the website cannot be loaded."
+    },
+
+    "follow": "Follow",
+    "@follow": {
+        "description": "Option to follow."
+    },
+
+    "unfollow": "Unfollow",
+    "@unfollow": {
+        "description": "Option to unfollow."
+    },
+
+    "search_results": "Search results",
+    "@search_results": {
+        "description": "The results of a search query."
+    },
+
+    "what_are_you_searching_for": "What are you searching for?",
+    "@what_are_you_searching_for": {
+        "description": "Prompt asking the user to specify their search query."
+    },
+
+    "no_results_for": "No results for",
+    "@no_results_for": {
+        "description": "Message indicating no search results were found for the given query."
+    },
+
+    "missing_category": "Missing category",
+    "@missing_category": {
+        "description": "Shows up if the category is not found in the standard dictionary."
+    },
+
+    "deleting" : "Deleting ...",
+    "@deleting": {
+        "description": "Indicates a deletion process."
+    },
+
+    "failed_loading_description" : "Failed to load description ...",
+    "@failed_loading_description": {  
+        "description": "Error text if no description loaded."
+    },
+
+    "common_deleted": "Common deleted.",
+    "@failed_loading_description": {  
+        "description": "Success text on complete deletion."
+    },
+
+    "loading": "Loading ...",
+    "@loading": {
+         "description": "Indicates that data is loading ."
+    },
+
+    "searching": "Searching ...",
+    "@loading": {
+         "description": "Indicates that data is searched."
+    },
+
+    "num_commons_found": "{count} Commons found",
+    "@num_commons_found": {
+         "description": "Shows the number of commmons found."
+    },
+    
+    "newest_round" : "New Rounds",
+    "@newest_round": {
+         "description": "Shows the headline for newest rounds."
+    },
+
+    "not_logged_in" : "You are not logged in. Log in first to start contributing.",
+    "@not_logged_in": {
+         "description": "Shows if the user is not logged in."
+    },
+
+    "user_taken" : "Account already exists.",
+    "@user_taken": {
+         "description": "Error message if user signs up with a taken name."
+    },
+
+    "delete_account": "Delete my account",
+    "@delete_account": {
+         "description": "Action to delete the user account."
+    },
+
+    "confirm_delete_account": "Do you want to delete your account?",
+    "@confirm_delete_account": {
+         "description": "Confirmation question delete account."
+    },
+
+    "no_login_data": "Please insert your login username and password.",
+    "@confirm_delete_account": {
+         "description": "Confirmation question delete account."
+    },
+
+    "common_not_found": "Common not found. Please check if the link or contact the Commons owner.",
+    "@common_not_found": {
+         "description": "Error shown if common failed to load."
+    }
+
+}
