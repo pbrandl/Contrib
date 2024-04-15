@@ -8,9 +8,14 @@
 
 ![ui](assets/gitimg/ui.png)
 
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
+- **Flutter**: This project uses Flutter version `3.17.0` as frontend. You can download it from [Flutter official site](https://flutter.dev/docs/get-started/install).
+- **Parse Server**: As backend this project uses Parse Server version `4.10.4`. Download it from their [repo on GitHub](https://github.com/parse-community/parse-server).
+
 
 ## Installation
-To get started with MyApp, follow these steps:
+To get started, follow these steps:
 1. Clone the repository:
 ```bash
 git clone https://github.com/pbrandl/contrib
