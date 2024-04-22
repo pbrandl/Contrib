@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/categories.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/custom_future_builder.dart';
-import 'package:flutter_application_test/globals/shimmer_widgets.dart';
+import 'package:Contrib/globals/categories.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/custom_future_builder.dart';
+import 'package:Contrib/globals/shimmer_widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';

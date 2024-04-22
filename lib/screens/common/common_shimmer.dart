@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/shimmer_widgets.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/shimmer_widgets.dart';
 
 /// This class defines how the shimmer widget looks during loading the initial
 /// common screen.

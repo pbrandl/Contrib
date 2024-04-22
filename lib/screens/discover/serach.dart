@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
+import 'package:Contrib/globals/global_widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';

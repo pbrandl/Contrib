@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/providers/responsive_provider.dart';
-import 'package:flutter_application_test/screens/discover/category.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/providers/responsive_provider.dart';
+import 'package:Contrib/screens/discover/category.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:flutter_application_test/screens/map/map.dart';
-import 'package:flutter_application_test/screens/discover/serach.dart';
-import 'package:flutter_application_test/screens/profile/profile.dart';
-import 'package:flutter_application_test/screens/discover/discover.dart';
-import 'package:flutter_application_test/screens/dashboard/dashboard.dart';
-import 'package:flutter_application_test/screens/common/common.dart';
+import 'package:Contrib/screens/map/map.dart';
+import 'package:Contrib/screens/discover/serach.dart';
+import 'package:Contrib/screens/profile/profile.dart';
+import 'package:Contrib/screens/discover/discover.dart';
+import 'package:Contrib/screens/dashboard/dashboard.dart';
+import 'package:Contrib/screens/common/common.dart';
 
 // ignore_for_file: prefer_const_constructors
 final _rootNavigatorKey = GlobalKey<NavigatorState>();

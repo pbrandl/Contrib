@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/navigation/desktop.dart';
-import 'package:flutter_application_test/navigation/mobile.dart';
-import 'package:flutter_application_test/navigation/tablet.dart';
+import 'package:Contrib/navigation/desktop.dart';
+import 'package:Contrib/navigation/mobile.dart';
+import 'package:Contrib/navigation/tablet.dart';
 import 'package:go_router/go_router.dart';
 
 enum ScreenType { mobile, tablet, desktop }

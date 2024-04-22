@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/categories.dart';
-import 'package:flutter_application_test/globals/custom_future_builder.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/shimmer_widgets.dart';
+import 'package:Contrib/globals/categories.dart';
+import 'package:Contrib/globals/custom_future_builder.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/shimmer_widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/formatter.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/keypad.dart';
-import 'package:flutter_application_test/globals/snackbar.dart';
-import 'package:flutter_application_test/providers/responsive_provider.dart';
-import 'package:flutter_application_test/providers/user_provider.dart';
+import 'package:Contrib/globals/formatter.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/keypad.dart';
+import 'package:Contrib/globals/snackbar.dart';
+import 'package:Contrib/providers/responsive_provider.dart';
+import 'package:Contrib/providers/user_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

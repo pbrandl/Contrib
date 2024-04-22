@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/navigation/nav_desktop.dart';
+import 'package:Contrib/navigation/nav_desktop.dart';
 
 class DesktopScaffold extends StatelessWidget {
   final Widget bodyWidget;

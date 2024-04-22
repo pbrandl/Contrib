@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/custom_future_builder.dart';
-import 'package:flutter_application_test/globals/shimmer_widgets.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/custom_future_builder.dart';
+import 'package:Contrib/globals/shimmer_widgets.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_test/globals/categories.dart';
-import 'package:flutter_application_test/globals/global_styles.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/snackbar.dart';
-import 'package:flutter_application_test/providers/user_provider.dart';
+import 'package:Contrib/globals/categories.dart';
+import 'package:Contrib/globals/global_styles.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/snackbar.dart';
+import 'package:Contrib/providers/user_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';

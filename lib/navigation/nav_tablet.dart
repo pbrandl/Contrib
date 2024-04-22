@@ -1,4 +1,4 @@
-import 'package:flutter_application_test/globals/global_widgets.dart';
+import 'package:Contrib/globals/global_widgets.dart';
 import 'destinations.dart';
 import 'package:flutter/material.dart';
 

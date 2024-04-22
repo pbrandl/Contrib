@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/navigation/nav_bar.dart';
+import 'package:Contrib/navigation/nav_bar.dart';
 
 class MobileScaffold extends StatelessWidget {
   final Widget bodyWidget;

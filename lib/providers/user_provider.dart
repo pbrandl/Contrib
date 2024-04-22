@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/l10n/l10n.dart';
-import 'package:flutter_application_test/themes/themes.dart';
+import 'package:Contrib/l10n/l10n.dart';
+import 'package:Contrib/themes/themes.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

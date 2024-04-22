@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/dialogs.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/l10n/l10n.dart';
-import 'package:flutter_application_test/providers/responsive_provider.dart';
-import 'package:flutter_application_test/providers/user_provider.dart';
+import 'package:Contrib/globals/dialogs.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/l10n/l10n.dart';
+import 'package:Contrib/providers/responsive_provider.dart';
+import 'package:Contrib/providers/user_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 

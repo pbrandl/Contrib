@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/globals/snackbar.dart';
-import 'package:flutter_application_test/providers/responsive_provider.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/globals/snackbar.dart';
+import 'package:Contrib/providers/responsive_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// This file contains all kinds of dialogs that are used throughout the app.

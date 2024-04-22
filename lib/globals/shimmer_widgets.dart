@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_test/globals/global_styles.dart';
+import 'package:Contrib/globals/global_styles.dart';
 
 class ShimmerH1 extends StatelessWidget {
   final double width;

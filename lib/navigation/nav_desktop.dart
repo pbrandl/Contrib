@@ -1,5 +1,5 @@
-import 'package:flutter_application_test/globals/global_widgets.dart';
-import 'package:flutter_application_test/providers/responsive_provider.dart';
+import 'package:Contrib/globals/global_widgets.dart';
+import 'package:Contrib/providers/responsive_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'destinations.dart';
 import 'package:flutter/material.dart';
