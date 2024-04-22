@@ -1,6 +1,6 @@
 # Contrib
 
-**Contrib** is a multi-platform application developed using Flutter. It allows users to set up their own [community supported project](https://csx-netzwerk.de/en/) and perform real-time funding with ease.
+**Contrib** is a multi-platform application developed using Flutter. It allows users to set up their own [community supported project](https://csx-netzwerk.de/en/) and perform real-time contribution with ease.
 
 ## Features
 - Real-time anonymous contribution by users.
