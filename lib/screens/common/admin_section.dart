@@ -392,7 +392,8 @@ class _DownloadRoundState extends State<DownloadRound> {
     final query = QueryBuilder<ParseObject>(ParseObject('Contributions'))
       ..whereEqualTo('roundId', widget._round)
       ..keysToReturn(['sumContributions', 'userId'])
-      ..includeObject(['userId']);
+      ..includeObject(['userId'])
+      ..setLimit(10000);
 
     final ParseResponse apiResponse = await query.query();
 
