@@ -59,8 +59,7 @@ class _CommonState extends State<Common> {
   Subscription? _totalContribSub;
 
   /// The web url to the commons
-  String url =
-      'https://commons-git-main-pbrandls-projects.vercel.app/#/commons/detail/';
+  String url = 'https://contrib.vercel.app/#/commons/detail/';
 
   /// Initializes the widget by fetching the data for this common
   /// from the server and setting up live queries.
