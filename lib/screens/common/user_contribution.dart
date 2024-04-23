@@ -1,3 +1,4 @@
+import 'package:Contrib/screens/common/not_logged_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:Contrib/globals/formatter.dart';
 import 'package:Contrib/globals/global_widgets.dart';
@@ -412,30 +413,7 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
           ],
         );
       } else {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: SizedBox(
-                width: 300,
-                child: Text(AppLocalizations.of(context)!.not_logged_in,
-                    textAlign: TextAlign.center),
-              ),
-            ),
-            const SpaceH(),
-            Center(
-              child: ElevatedButton(
-                child: SizedBox(
-                  width: 70,
-                  child: Center(
-                    child: Text(AppLocalizations.of(context)!.login),
-                  ),
-                ),
-                onPressed: () => GoRouter.of(context).go('/commons'),
-              ),
-            ),
-          ],
-        );
+        return const NotLoggedInWidget();
       }
     }
 

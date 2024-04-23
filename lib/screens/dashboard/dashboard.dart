@@ -532,7 +532,7 @@ class _DashboardState extends State<Dashboard> {
                 },
               ),
             )
-          : const SignUpLogIn(), // if user is null
+          : const SignUpLogInDialog(),
     );
   }
 }

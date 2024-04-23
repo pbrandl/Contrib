@@ -5,21 +5,15 @@ import 'package:Contrib/providers/responsive_provider.dart';
 import 'package:Contrib/providers/user_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SignUpLogIn extends StatefulWidget {
-  const SignUpLogIn({super.key});
+class SignUpLogInDialog extends StatefulWidget {
+  const SignUpLogInDialog({super.key});
 
   @override
-  SignUpLogInState createState() => SignUpLogInState();
+  SignUpLogInDialogState createState() => SignUpLogInDialogState();
 }
 
-class SignUpLogInState extends State<SignUpLogIn> {
-  final _controllerSignUpEmail = TextEditingController();
-  final _controllerSignUpPassword = TextEditingController();
-  final _controllerLoginEmail = TextEditingController();
-  final _controllerLoginPassword = TextEditingController();
-
-  bool _isLoggingIn = false;
-  int _selectedTabBar = 0;
+class SignUpLogInDialogState extends State<SignUpLogInDialog> {
+  final bool _isLoggingIn = false;
 
   late ResponsiveProvider _responsiveProvider;
   late ScreenType _screenType;
@@ -31,6 +25,66 @@ class SignUpLogInState extends State<SignUpLogIn> {
     _responsiveProvider = ResponsiveProvider.of(context)!;
     _screenType = _responsiveProvider.screenType;
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        if (!_isLoggingIn)
+          _screenType != ScreenType.mobile
+              ? Center(
+                  child: SingleChildScrollView(
+                    child: Dialog(
+                      backgroundColor: Theme.of(context).cardColor,
+                      shadowColor: Colors.black,
+                      elevation: 2,
+                      child: Container(
+                          width: 500,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(30),
+                                topLeft: Radius.circular(30)),
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          child: const SignUpLogInTabBar()),
+                    ),
+                  ),
+                )
+              : Container(
+                  height: double.infinity,
+                  color: Theme.of(context).cardColor,
+                  child: const Dialog.fullscreen(
+                    child: SingleChildScrollView(child: SignUpLogInTabBar()),
+                  ),
+                )
+        else
+          const Center(
+            child: CircularProgressIndicator(),
+          )
+      ],
+    );
+  }
+}
+
+class SignUpLogInTabBar extends StatefulWidget {
+  final bool popOnLogin;
+  const SignUpLogInTabBar({
+    super.key,
+    this.popOnLogin = false,
+  });
+
+  @override
+  SignUpLogInTabBarState createState() => SignUpLogInTabBarState();
+}
+
+class SignUpLogInTabBarState extends State<SignUpLogInTabBar> {
+  final _controllerSignUpEmail = TextEditingController();
+  final _controllerSignUpPassword = TextEditingController();
+  final _controllerLoginEmail = TextEditingController();
+  final _controllerLoginPassword = TextEditingController();
+
+  bool _isLoggingIn = false;
+  int _selectedTabBar = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +134,13 @@ class SignUpLogInState extends State<SignUpLogIn> {
                   },
                 );
 
-                // If still mounted release the UI
+                // If still mounted release logging-in-state
                 if (mounted) {
                   setState(() {
                     _isLoggingIn = false;
                   });
                 }
               }),
-          // const SpaceH(),
         ],
       ),
     );
@@ -120,7 +173,7 @@ class SignUpLogInState extends State<SignUpLogIn> {
         },
       );
 
-      // If still mounted release the UI
+      // If still mounted release logging-in-state
       if (mounted) {
         setState(() {
           _isLoggingIn = false;
@@ -170,82 +223,58 @@ class SignUpLogInState extends State<SignUpLogIn> {
           ),
           const SpaceH(),
           FilledButton(
-            onPressed: _isLoggingIn ? null : logInHandler,
-            child: Text(AppLocalizations.of(context)!.login),
+            onPressed: _isLoggingIn
+                ? null
+                : () {
+                    logInHandler();
+                    if (widget.popOnLogin) {
+                      Navigator.of(context).pop();
+                    }
+                  },
+            child: _isLoggingIn
+                ? const SmallProgressIndicator()
+                : Text(AppLocalizations.of(context)!.login),
           ),
         ],
       ),
     );
 
-    Widget signUpLogInTabBar() => DefaultTabController(
-          length: 2,
-          child: Column(
-            children: [
-              const AppLogo(height: 200, width: double.infinity),
-              TabBar(
-                onTap: (index) {
-                  setState(() {
-                    _selectedTabBar = index;
-                  });
-                },
-                tabs: [
-                  Tab(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(AppLocalizations.of(context)!.login),
-                    ),
+    return DefaultTabController(
+      length: 2,
+      child: SizedBox(
+        width: 500,
+        child: Column(
+          children: [
+            const AppLogo(height: 200, width: double.infinity),
+            TabBar(
+              onTap: (index) {
+                setState(() {
+                  _selectedTabBar = index;
+                });
+              },
+              tabs: [
+                Tab(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(AppLocalizations.of(context)!.login),
                   ),
-                  Tab(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(AppLocalizations.of(context)!.signup),
-                    ),
+                ),
+                Tab(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text(AppLocalizations.of(context)!.signup),
                   ),
-                ],
-              ),
-              Builder(builder: (_) {
-                return Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: _selectedTabBar == 1 ? signUpWidget : logInWidget);
-              }),
-            ],
-          ),
-        );
-
-    return Stack(
-      children: [
-        if (!_isLoggingIn)
-          _screenType != ScreenType.mobile
-              ? Center(
-                  child: SingleChildScrollView(
-                    child: Dialog(
-                      backgroundColor: Theme.of(context).cardColor,
-                      shadowColor: Colors.black,
-                      elevation: 2,
-                      child: Container(
-                          width: 500,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(30),
-                                topLeft: Radius.circular(30)),
-                          ),
-                          clipBehavior: Clip.antiAlias,
-                          child: signUpLogInTabBar()),
-                    ),
-                  ),
-                )
-              : Container(
-                  height: double.infinity,
-                  color: Theme.of(context).cardColor,
-                  child: Dialog.fullscreen(
-                    child: SingleChildScrollView(child: signUpLogInTabBar()),
-                  ),
-                )
-        else
-          const Center(
-            child: CircularProgressIndicator(),
-          )
-      ],
+                ),
+              ],
+            ),
+            Builder(builder: (_) {
+              return Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: _selectedTabBar == 1 ? signUpWidget : logInWidget);
+            }),
+          ],
+        ),
+      ),
     );
   }
 }

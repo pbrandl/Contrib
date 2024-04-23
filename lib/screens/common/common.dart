@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:Contrib/screens/common/not_logged_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:Contrib/globals/categories.dart';
@@ -58,7 +59,7 @@ class _CommonState extends State<Common> {
   final LiveQuery roundsLiveQuery = LiveQuery();
   Subscription? _totalContribSub;
 
-  /// The web url to the commons
+  /// The web url to the this common
   String url = 'https://contrib.vercel.app/#/commons/detail/';
 
   /// Initializes the widget by fetching the data for this common
@@ -689,6 +690,8 @@ class _CommonState extends State<Common> {
                               children: [
                                 const SpaceH(),
                                 const SpaceH(),
+                                if (!userProvider.isLoggedIn())
+                                  const NotLoggedInWidget(),
                                 if (userProvider.isLoggedIn())
                                   UserContributionWidget(
                                     round: lastRound,

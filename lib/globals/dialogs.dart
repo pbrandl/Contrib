@@ -14,6 +14,7 @@ Future<T?> showResponsiveDialog<T>(
   required ScreenType screenType,
   required Widget child,
   double heightFactor = 0.66,
+  bool applyPadding = true,
 }) {
   if (screenType != ScreenType.desktop) {
     return showModalBottomSheet(
@@ -25,7 +26,9 @@ Future<T?> showResponsiveDialog<T>(
             heightFactor: heightFactor,
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: applyPadding
+                    ? const EdgeInsets.all(16.0)
+                    : const EdgeInsets.all(0),
                 child: child,
               ),
             ),
@@ -41,7 +44,9 @@ Future<T?> showResponsiveDialog<T>(
             child: IntrinsicWidth(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: applyPadding
+                      ? const EdgeInsets.all(16.0)
+                      : const EdgeInsets.all(0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [child],
