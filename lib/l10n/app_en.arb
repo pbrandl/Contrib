@@ -787,6 +787,30 @@
     "common_not_found": "Common not found. Please check if the link or contact the Commons owner.",
     "@common_not_found": {
          "description": "Error shown if common failed to load."
-    }
+    },
 
+    "change_password": "Change Password",
+    "@change_password": {
+         "description": "Headline of change password dialog."
+    },
+
+    "new_password": "New Password",
+    "@new_password": {
+         "description": "New Password."
+    },
+
+    "confirm_password": "Confirm Password",
+    "@new_password": {
+         "description": "Confirm Password."
+    },
+
+    "passwords_unequal": "Passwords do not match.",
+    "@passwords_unequal": {
+         "description": "Info text showing if passwords do not match."
+    },
+
+    "password_changed_successfully": "Password changed successfully.",
+    "@password_changed_successfully": {
+         "description": "On successful change."
+    }
 }

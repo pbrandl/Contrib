@@ -1,3 +1,4 @@
+import 'package:Contrib/screens/profile/change_password_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:Contrib/globals/dialogs.dart';
 import 'package:Contrib/globals/global_widgets.dart';
@@ -19,11 +20,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   late ScreenType _screenType;
   late UserProvider _userProvider;
 
-  bool isThemeChoice = false;
-  bool isPasswordChanged = false;
-  bool isMailChanged = false;
-  bool isNameChanged = false;
-  bool isIbanChanged = false;
   bool isMobile = false;
 
   @override
@@ -59,24 +55,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               ));
         },
       );
-
-  // changePassword(String password) async {
-  //   ParseUser? user = _userProvider.user.getParseUser();
-
-  //   if (user == null) {
-  //     return Future.error(NoUserException());
-  //   }
-
-  //   user.set('password', password);
-
-  //   ParseResponse response = await user.save();
-
-  //   if (response.success) {
-  //     showSuccessPasswordChange();
-  //   } else if (response.error != null) {
-  //     showErrorPasswordChange();
-  //   }
-  // }
 
   // The email as list tile
   Widget emailTile() => CustomListTile(
@@ -242,12 +220,25 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     }
   }
 
-  Widget passwordTile() => CustomListTile(
-        enableHoverEffect: false,
-        leadingWidget: const Icon(Icons.https_sharp),
-        titleName: AppLocalizations.of(context)!.password,
-        subtitleName: "********",
-      );
+  Widget passwordTile() {
+    showChangePasswordDialog() => showResponsiveDialog(
+          context,
+          screenType: _screenType,
+          heightFactor: 1,
+          child: const ChangePasswordWidget(),
+        );
+
+    return CustomListTile(
+      enableHoverEffect: false,
+      leadingWidget: const Icon(Icons.https_sharp),
+      titleName: AppLocalizations.of(context)!.password,
+      subtitleName: "********",
+      trailingWidget: TextButton(
+          onPressed: showChangePasswordDialog,
+          child: Text(AppLocalizations.of(context)!.edit)),
+      onTapFunction: showChangePasswordDialog,
+    );
+  }
 
   Widget themeTile(context) => CustomListTile(
         enableHoverEffect: false,

@@ -36,7 +36,7 @@
 "mail": "E-Mail",
 "contributions": "Beiträge",
 "contribution": "Beitrag",
-"contribute_info": "Trage zur aktuellen Runde bei, indem du auf 'Beitragen' klickst. Mit jedem neuen Beitrag ergänzt du deinen aktuellen. Mit einem klick auf 'Zurücksetzen' wird dein Beitrag auf 0 gesetzt. Im Chart kannst du sehen wie hoch der Gesamtbeitrag ist und den Fortschritt zum Beitragsziel (oben rechts) verfolgen.",
+"contribute_info": "Trage zur aktuellen Runde bei, indem du auf 'Beitragen' klickst. Mit jedem neuen Beitrag ergänzt du deinen aktuellen. Mit einem Klick auf 'Zurücksetzen' wird dein Beitrag auf 0 gesetzt. Im Chart kannst du sehen wie hoch der Gesamtbeitrag ist und den Fortschritt zum Beitragsziel (oben rechts) verfolgen.",
 "target": "Beitragsziel",
 "round": "Runde",
 "edit": "Bearbeiten",
@@ -155,10 +155,12 @@
 
 "no_login_data": "Username und Password eingeben.",
 
-"common_not_found": "Common nicht gefunden. Überprüfe den Link oder kontaktiere den Administrator."
+"common_not_found": "Common nicht gefunden. Überprüfe den Link oder kontaktiere den Administrator.",
 
-
-
+"new_password": "Neues Passwort",
+"confirm_password": "Passwort bestätigen",
+"passwords_unequal": "Passwörter stimmen nicht überein.",
+"password_changed_successfully": "Passwort erfolgreich geändert."
 }
 
 

@@ -153,9 +153,12 @@
 "no_login_data": "Entrez le nom d'utilisateur et le mot de passe.",
 
 
-"common_not_found": "Common non trouvé. Vérifiez le lien ou contactez l'administrateur."
+"common_not_found": "Common non trouvé. Vérifiez le lien ou contactez l'administrateur.",
 
-
+"new_password": "Nouveau mot de passe",
+"confirm_password": "Confirmer le mot de passe",
+"passwords_unequal": "Les mots de passe ne correspondent pas.",
+"password_changed_successfully": "Mot de passe modifié avec succès."
 
 }
 

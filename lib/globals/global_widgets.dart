@@ -724,6 +724,7 @@ class SmallProgressIndicator extends StatelessWidget {
 
 class ResponsivePadding extends StatelessWidget {
   final Widget child;
+
   const ResponsivePadding({
     super.key,
     required this.child,

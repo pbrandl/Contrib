@@ -5,7 +5,6 @@ import 'package:Contrib/providers/responsive_provider.dart';
 import 'package:Contrib/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:go_router/go_router.dart';
 
 class NotLoggedInWidget extends StatefulWidget {
   const NotLoggedInWidget({
