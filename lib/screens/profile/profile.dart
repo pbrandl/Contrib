@@ -290,29 +290,29 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           // deleteUserTile(), TODO: finalize delete process
                         ]),
                       ),
-                    if (!UserProvider.of(context)!.isLoggedIn())
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: FilledButton.tonal(
-                              child: Text(AppLocalizations.of(context)!.login),
-                              onPressed: () =>
-                                  GoRouter.of(context).go('/commons'),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 32,
-                          ),
-                          Expanded(
-                            child: FilledButton.tonal(
-                              child: Text(AppLocalizations.of(context)!.signup),
-                              onPressed: () =>
-                                  GoRouter.of(context).go('/commons'),
-                            ),
-                          )
-                        ],
-                      ),
+                    // if (!UserProvider.of(context)!.isLoggedIn())
+                    //   Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       Expanded(
+                    //         child: FilledButton.tonal(
+                    //           child: Text(AppLocalizations.of(context)!.login),
+                    //           onPressed: () =>
+                    //               GoRouter.of(context).go('/commons'),
+                    //         ),
+                    //       ),
+                    //       const SizedBox(
+                    //         width: 32,
+                    //       ),
+                    //       Expanded(
+                    //         child: FilledButton.tonal(
+                    //           child: Text(AppLocalizations.of(context)!.signup),
+                    //           onPressed: () =>
+                    //               GoRouter.of(context).go('/commons'),
+                    //         ),
+                    //       )
+                    //     ],
+                    //   ),
                     const SpaceH(),
                     const SpaceH(),
                     Padding(

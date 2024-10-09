@@ -45,7 +45,7 @@ dependencies:
   url_launcher: ^6.1.14
   shared_preferences: ^2.2.1
   geolocator: ^10.1.0
-  image_picker: ^1.0.6
+  image_picker: any
   image: ^3.0.2
   csv: ^5.1.1
   file_picker: ^6.1.1

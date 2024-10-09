@@ -654,7 +654,10 @@ class _CommonState extends State<Common> {
               ],
               leading: IconButton(
                   icon: const Icon(Icons.chevron_left),
-                  onPressed: () => GoRouter.of(context).pop(),
+                  onPressed: () {
+                    userProvider.user.logout();
+                    GoRouter.of(context).pop();
+                  },
                   style: ButtonStyle(backgroundColor:
                       MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {

@@ -14,7 +14,6 @@ class KeyPad extends StatefulWidget {
 }
 
 class KeyPadState extends State<KeyPad> {
-  int minNumber = 1;
   String showHint = "";
 
   @override
@@ -22,20 +21,44 @@ class KeyPadState extends State<KeyPad> {
     super.initState();
   }
 
-  void _appendNumber(int number) {
-    // Adding a leading zero is rejected.
-    if (widget._controller.numberString == "0" && number == 0) return;
+  bool isValidDecimal(String input) {
+    // Regular expression to check if the number has up to two decimal places
+    final RegExp regExp = RegExp(r'^\d+(?:,\d{0,1})?$');
+    return regExp.hasMatch(input);
+  }
 
-    // No higher numbers than 99.999 € are allowed. Show a message if exceeded.
-    if (widget._controller.length() < 5) {
-      widget._controller.removeLeadingZero();
+  double parseToDouble(String input) {
+    String normalizedInput = input.replaceAll(',', '.');
+    return double.parse(normalizedInput);
+  }
+
+  void _appendNumber(int number) {
+    if (!isValidDecimal(widget._controller.numberString)) return;
+    // Adding a leading zero is rejected.
+    // if (widget._controller.numberString == "0" && number == 0) return;
+
+    // No higher numbers than 99.999,99 € are allowed. Show a message if exceeded.
+    if (parseToDouble(widget._controller.numberString) <= 100000) {
+      if (widget._controller.numberString.startsWith('0') &&
+          widget._controller.numberString.contains(',')) {
+      } else {
+        widget._controller.removeLeadingZero();
+      }
       setState(() {
         widget._controller.numberString =
             "${widget._controller.numberString}$number";
       });
     } else {
       setState(() {
-        showHint = "Max. contribution is 99.999 €.";
+        showHint = "Max. contribution is 99.999,99 €.";
+      });
+    }
+  }
+
+  void _appendComma() {
+    if (widget._controller.numberString.length >= 1) {
+      setState(() {
+        widget._controller.numberString += ",";
       });
     }
   }
@@ -43,7 +66,7 @@ class KeyPadState extends State<KeyPad> {
   void _deleteLastCharacter() {
     if (widget._controller.length() <= 1) {
       setState(() {
-        widget._controller.numberString = "0";
+        widget._controller.numberString = "";
       });
     } else if (widget._controller.isNotEmpty()) {
       setState(() {
@@ -84,6 +107,22 @@ class KeyPadState extends State<KeyPad> {
           child: H3(
             num.toString(),
           ),
+        ),
+      );
+
+  Widget _commaButton() => _buttonContainer(
+        MaterialButton(
+          elevation: 0,
+          hoverElevation: 0,
+          focusElevation: 0,
+          highlightElevation: 0,
+          height: 90,
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(60),
+          ),
+          onPressed: () => _appendComma(),
+          child: const Text(','),
         ),
       );
 
@@ -149,7 +188,7 @@ class KeyPadState extends State<KeyPad> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            emptyButton(),
+            _commaButton(), // emptyButton(),
             _keyButton(0),
             deleteButton(),
           ],

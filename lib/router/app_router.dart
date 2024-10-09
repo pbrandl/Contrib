@@ -1,3 +1,4 @@
+import 'package:Contrib/screens/dashboard/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:Contrib/globals/global_widgets.dart';
 import 'package:Contrib/providers/responsive_provider.dart';
@@ -43,7 +44,7 @@ final GoRouter _appRouter = GoRouter(
               path: '/commons',
               name: 'commons',
               pageBuilder: (context, state) => NoTransitionPage(
-                child: Dashboard(),
+                child: UserList(),
               ),
               routes: [
                 GoRoute(

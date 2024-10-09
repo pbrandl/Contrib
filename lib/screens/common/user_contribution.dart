@@ -54,6 +54,13 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
   }
 
   Future initializeContribution() async {
+    setState(() {
+      _lockContrib();
+      _lockWidget();
+    });
+
+    // await Future.delayed(const Duration(seconds: 10));
+
     ParseObject? newUserContrib =
         await _fetchUserContribution(_round!).catchError(
       (e) {
@@ -70,6 +77,11 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
         _userContrib = newUserContrib;
       });
     }
+
+    setState(() {
+      _releaseContrib();
+      _releaseWidget();
+    });
   }
 
   @override
@@ -131,8 +143,8 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
         ..set('commonId', widget.common.toPointer())
         ..set('contributions', [newContrib])
         ..set('sumContributions', newContrib)
-        ..set('userId', user.toPointer())
-        ..setACL(acl);
+        ..set('userId', user.toPointer());
+      // ..setACL(acl);
 
       ParseRelation userContribs = user.getRelation('contributions');
       userContribs.add(newContribObj); // Add to user relation
@@ -175,7 +187,7 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
     ParseACL acl = ParseACL(owner: user)
       ..setReadAccess(userId: widget.common['admin'].objectId, allowed: false);
     ParseRelation contribs = user.getRelation('contributions');
-    user.setACL(acl);
+    // user.setACL(acl);
     _userProvider.user.saveAndNotify();
 
     contribs.remove(_userContrib!);
@@ -309,7 +321,8 @@ class _UserContributionWidgetState extends State<UserContributionWidget> {
                                 child: FilledButton(
                                   onPressed: () {
                                     double newContribution = double.parse(
-                                        padController.numberString);
+                                        padController.numberString
+                                            .replaceAll(',', '.'));
                                     if (newContribution > 0) {
                                       addContributionHandler(widget.common,
                                           widget.round!, newContribution);
