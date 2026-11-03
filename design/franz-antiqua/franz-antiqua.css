@@ -1,0 +1,26 @@
+/* Franz Antiqua – high-contrast Didone display face (SIL OFL 1.1) */
+@font-face {
+  font-family: "Franz Antiqua";
+  src: url("fonts/FranzAntiqua-Light.woff2") format("woff2"),
+       url("fonts/FranzAntiqua-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Franz Antiqua";
+  src: url("fonts/FranzAntiqua-Regular.woff2") format("woff2"),
+       url("fonts/FranzAntiqua-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Recommended use: headlines from ~28px upward, paired with Inter for body text. */
+.franz-display {
+  font-family: "Franz Antiqua", "Didot", "Bodoni 72", Georgia, serif;
+  font-weight: 400;
+  font-kerning: normal;
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+}

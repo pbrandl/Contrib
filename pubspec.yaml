@@ -95,6 +95,12 @@ flutter:
     - family: Lexend
       fonts:
         - asset: fonts/Lexend-VariableFont_wght.ttf
+    - family: FranzAntiqua
+      fonts:
+        - asset: fonts/FranzAntiqua-Light.ttf
+          weight: 300
+        - asset: fonts/FranzAntiqua-Regular.ttf
+          weight: 400
 
   assets:
     - assets/img/agriculture.webp
