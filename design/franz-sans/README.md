@@ -7,6 +7,8 @@ face for highlights.
 - Weights: Regular 400, Medium 500, Semibold 600, Bold 700
 - Large x-height (530 at 710 cap height), open apertures, low stroke contrast
 - Distinct I / l / 1 (l has a tail, 1 has a flag)
+- Built from exact geometry: superellipse rings (cubic Béziers with on-curve
+  extremes), rectangles and parallelograms, straight terminal cuts, tangent joins
 - Hinted with ttfautohint for crisp rendering on Windows
 - 108 glyphs incl. ÄÖÜäöüß, € and kerning
 - License: SIL Open Font License 1.1
