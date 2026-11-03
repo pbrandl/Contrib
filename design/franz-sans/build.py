@@ -10,7 +10,7 @@ Every glyph is constructed from exact geometry, not traced strokes:
     TrueType quadratics with cu2qu and autohinted with ttfautohint.
 
 Design goals: large x-height (530/710), open apertures, low contrast,
-calm proportions, clear I / l / 1 (l has a tail, 1 has a flag).
+calm proportions, measured spacing, a flagged 1 and ascenders taller than caps (l vs I).
 
     pip install fonttools skia-pathops brotli ttfautohint-py
     python3 build.py            # writes ./fonts/*.ttf, *.woff2
@@ -39,10 +39,10 @@ K_OUT, K_IN = 0.585, 0.575  # superellipse handle factors (0.552 = circle)
 
 WEIGHTS = {
     # name: (vertical stem, horizontal stroke, usWeightClass)
-    "Regular": (76, 68, 400),
-    "Medium": (90, 79, 500),
-    "Semibold": (106, 91, 600),
-    "Bold": (124, 104, 700),
+    "Regular": (84, 74, 400),
+    "Medium": (98, 85, 500),
+    "Semibold": (113, 96, 600),
+    "Bold": (130, 108, 700),
 }
 
 
@@ -214,14 +214,22 @@ def hook_down(w, x_stem_r, x_l, cy, bottom, term):
     return D(I(rg, below(cy)), wedge(cx, cy, 180, term))
 
 
-def tail_right(w, x_stem_l, x_r, cy, term=292):
-    """Tail at the foot of l and t, curving right to a terminal."""
+def tail_right(w, x_stem_l, R, ry, ext):
+    """Foot of t: quarter ring of radius R out of the stem, then a straight
+    horizontal run of length ext ending in a vertical cut."""
     V, H = w.V, w.H
-    b = -OV
-    t = 2 * cy - b
-    rg = ring(x_stem_l, x_r, b, t, V, H)
-    cx = (x_stem_l + x_r) / 2
-    return D(I(rg, below(cy)), wedge(cx, cy, term, 360))
+    rg = ring(x_stem_l, x_stem_l + 2 * R, 0, 2 * ry, V, H)
+    q = I(I(rg, below(ry)), left_of(x_stem_l + R))
+    return U(q, rect(x_stem_l + R - 1, 0, x_stem_l + R + ext, H))
+
+
+def hook_left(w, x_stem_r, R, top, bottom, ext):
+    """Descender of j: quarter ring curving left, then a straight run of length ext."""
+    V, H = w.V, w.H
+    ry = (top - bottom)
+    rg = ring(x_stem_r - 2 * R, x_stem_r, bottom, bottom + 2 * ry, V, H)
+    q = I(I(rg, below(top)), right_of(x_stem_r - R))
+    return U(q, rect(x_stem_r - R - ext, bottom, x_stem_r - R + 1, bottom + H))
 
 
 def s_shape(w, x0, x1, h, ys):
@@ -633,7 +641,7 @@ def _f(w):
     V, H = w.V, w.H
     x = 100
     cy = ASC - 145
-    box = (x, x + 290, 2 * cy - ASC - OV, ASC + OV)
+    box = (x, x + 205 + V, 2 * cy - ASC - OV, ASC + OV)
     cx = box_c(*box)[0]
     hook = D(I(ring(*box, V, H), above(cy)), wedge(cx, cy, -90, 62))
     return U(rect(x, 0, x + V, cy + 1), hook, rect(25, XH - H, 330, XH))
@@ -671,9 +679,9 @@ def _dotlessi(w):
 def _j(w):
     V = w.V
     xr = 120 + V / 2
-    cy = -40
-    return U(rect(xr - V, cy - 1, xr, XH), hook_down(w, xr, xr - 270, cy, DESC - OV, 238),
-             dot(120, XH + 150, w.R))
+    R = 95 + 0.7 * V
+    top = -60
+    return U(rect(xr - V, top - 1, xr, XH), hook_left(w, xr, R, top, DESC, 45), dot(120, XH + 150, w.R))
 
 
 @glyph("k", "k", 545)
@@ -688,8 +696,7 @@ def _k(w):
 @glyph("l", "l", 270)
 def _l(w):
     V = w.V
-    x, cy = 75, 125
-    return U(rect(x, cy - 1, x + V, ASC), tail_right(w, x, x + 250, cy, 288))
+    return rect(75, 0, 75 + V, ASC)
 
 
 @glyph("m", "m", 885)
@@ -738,8 +745,9 @@ def _s(w):
 @glyph("t", "t", 365)
 def _t(w):
     V, H = w.V, w.H
-    x, cy = 100, 125
-    return U(rect(x, cy - 1, x + V, 655), tail_right(w, x, x + 250, cy, 290), rect(25, XH - H, 335, XH))
+    x, R = 100, 100 + 0.7 * V
+    ry = 150
+    return U(rect(x, ry - 1, x + V, 655), tail_right(w, x, R, ry, 45), rect(25, XH - H, 335, XH))
 
 
 @glyph("u", "u", 590)
@@ -1007,8 +1015,9 @@ def _euro(w):
 
 
 # ---------- accented letters
-def marks(w, adv, kind, base):
-    cx = adv / 2 - (10 if base == "a" else 0)
+def marks(w, cx, kind, base):
+    """cx = optical centre of the base glyph's ink."""
+    cx -= 10 if base == "a" else 0
     uc = kind.endswith("uc")
     if kind.startswith("dieresis"):
         y = CAP + 140 if uc else XH + 150
@@ -1048,6 +1057,97 @@ feature kern {
 """
 
 
+# ------------------------------------------------------------------ spacing
+# Side bearings are measured, not guessed: for every side the white space
+# between the outline profile and the side bearing is averaged over the
+# x-height (lowercase) or cap height (capitals, figures). Deep openings
+# (c, r, T, L, v ...) are capped so they count as "open" space. Every side
+# then gets  sb = target - reduction(mean_depth)  with a saturating curve, so
+# round sides lose a little, diagonal and open sides lose most of the target.
+LC = set("abcdefghijklmnopqrstuvwxyz") | {"germandbls", "dotlessi"}
+UC = set("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+FIGS = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+
+
+class _Flatten:
+    """Minimal pen flattening a path into polygons."""
+
+    def __init__(self):
+        self.polys, self.cur, self.last = [], [], None
+
+    def moveTo(self, p):
+        self.cur = [p]; self.last = p
+
+    def lineTo(self, p):
+        self.cur.append(p); self.last = p
+
+    def curveTo(self, *pts):
+        p0 = self.last
+        c1, c2, p3 = pts[-3], pts[-2], pts[-1]
+        for i in range(1, 17):
+            t = i / 16
+            a, b, c, d = (1 - t) ** 3, 3 * t * (1 - t) ** 2, 3 * t * t * (1 - t), t ** 3
+            self.cur.append((a * p0[0] + b * c1[0] + c * c2[0] + d * p3[0], a * p0[1] + b * c1[1] + c * c2[1] + d * p3[1]))
+        self.last = p3
+
+    def qCurveTo(self, *pts):
+        for p in pts:
+            self.lineTo(p)
+
+    def closePath(self):
+        if self.cur:
+            self.polys.append(self.cur)
+        self.cur = []
+
+    endPath = closePath
+
+
+def profile(path, y0, y1, step=4):
+    fp = _Flatten()
+    path.draw(fp)
+    rows = []
+    y = y0 + step / 2
+    while y < y1:
+        xs = []
+        for poly_ in fp.polys:
+            n = len(poly_)
+            for i in range(n):
+                (xa, ya), (xb, yb) = poly_[i - 1], poly_[i]
+                if (ya <= y < yb) or (yb <= y < ya):
+                    xs.append(xa + (y - ya) * (xb - xa) / (yb - ya))
+        rows.append((min(xs), max(xs)) if xs else None)
+        y += step
+    return rows
+
+
+def measure_sides(path, zone_h):
+    xmin, _, xmax, _ = path.bounds
+    rows = profile(path, 0, zone_h)
+    cap = zone_h * 0.5
+    dl = [min(cap, r[0] - xmin) if r else cap for r in rows]
+    dr = [min(cap, xmax - r[1]) if r else cap for r in rows]
+    return xmin, xmax, sum(dl) / len(dl), sum(dr) / len(dr)
+
+
+def spacing(name, path, V):
+    """Return (xshift, advance) for a glyph."""
+    if name in LC:
+        zone, target = XH, 63 + (V - 84) * 0.25
+    elif name in UC:
+        zone, target = CAP, 78 + (V - 84) * 0.3
+    else:
+        zone, target = CAP, 70
+    xmin, xmax, ml, mr = measure_sides(path, zone)
+    scale, most = zone * 0.21, target * 0.82
+
+    def red(d):
+        return most * (1 - math.exp(-(d / scale) ** 2))
+
+    lsb = target - red(ml)
+    rsb = target - red(mr)
+    return lsb - xmin, (xmax - xmin) + lsb + rsb
+
+
 # ------------------------------------------------------------------ build
 def path_to_glyph(path, dx):
     path = pathops.simplify(path, fix_winding=True)
@@ -1063,15 +1163,28 @@ def path_to_glyph(path, dx):
 def build(weight, outdir, hint=True):
     V, H, wc = WEIGHTS[weight]
     w = W(V, H)
-    pad = round((V - 76) * 0.3)
-    paths, advs, cmap = {}, {}, {}
+    pad = round((V - 84) * 0.3)
+    paths, advs, shift, cmap = {}, {}, {}, {}
     for name, (uni, adv, fn) in G.items():
-        paths[name] = fn(w)
-        advs[name] = adv
+        p = fn(w)
+        paths[name] = p
         cmap[ord(uni)] = name
+        if name in LC or name in UC:
+            shift[name], a = spacing(name, p, V)
+            advs[name] = round(a)
+            shift[name] = round(shift[name])
+        elif name in FIGS:  # tabular figures: centre the ink in a fixed width
+            x0, _, x1, _ = p.bounds
+            advs[name] = FW + 2 * pad
+            shift[name] = round((advs[name] - (x1 - x0)) / 2 - x0)
+        else:
+            advs[name] = adv + 2 * pad
+            shift[name] = pad
     for name, (uni, base, kind) in COMPOSITES.items():
-        paths[name] = U(paths[base], marks(w, advs[base], kind, base))
+        x0, _, x1, _ = paths[base].bounds
+        paths[name] = U(paths[base], marks(w, (x0 + x1) / 2, kind, base))
         advs[name] = advs[base]
+        shift[name] = shift[base]
         cmap[ord(uni)] = name
     order = [".notdef"] + list(paths)
 
@@ -1081,14 +1194,14 @@ def build(weight, outdir, hint=True):
     nd = D(rect(60, 0, 460, CAP), rect(60 + V, H, 460 - V, CAP - H))
     glyphs = {".notdef": path_to_glyph(nd, 0)}
     for name, p in paths.items():
-        glyphs[name] = path_to_glyph(p, pad)
+        glyphs[name] = path_to_glyph(p, shift[name])
     fb.setupGlyf(glyphs)
     glyf = fb.font["glyf"]
     metrics = {}
     for name in order:
         gl = glyf[name]
         gl.recalcBounds(glyf)
-        adv = 520 if name == ".notdef" else advs[name] + 2 * pad
+        adv = 520 if name == ".notdef" else advs[name]
         metrics[name] = (adv, gl.xMin if gl.numberOfContours else 0)
     fb.setupHorizontalMetrics(metrics)
     fb.setupHorizontalHeader(ascent=950, descent=-250)
