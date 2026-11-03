@@ -1,0 +1,13 @@
+/* Franz Sans – plain, highly legible UI and text face (SIL OFL 1.1) */
+@font-face { font-family: "Franz Sans"; src: url("fonts/FranzSans-Regular.woff2") format("woff2"), url("fonts/FranzSans-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Franz Sans"; src: url("fonts/FranzSans-Medium.woff2") format("woff2"), url("fonts/FranzSans-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Franz Sans"; src: url("fonts/FranzSans-Semibold.woff2") format("woff2"), url("fonts/FranzSans-Semibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Franz Sans"; src: url("fonts/FranzSans-Bold.woff2") format("woff2"), url("fonts/FranzSans-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* Text and UI: Franz Sans with system UI fallbacks */
+:root {
+  --font-text: "Franz Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Highlights: Franz Antiqua (see ../franz-antiqua/franz-antiqua.css), only from ~28px */
+  --font-highlight: "Franz Antiqua", "Didot", Georgia, serif;
+}
+body { font-family: var(--font-text); font-kerning: normal; line-height: 1.5; }

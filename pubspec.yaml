@@ -101,6 +101,16 @@ flutter:
           weight: 300
         - asset: fonts/FranzAntiqua-Regular.ttf
           weight: 400
+    - family: FranzSans
+      fonts:
+        - asset: fonts/FranzSans-Regular.ttf
+          weight: 400
+        - asset: fonts/FranzSans-Medium.ttf
+          weight: 500
+        - asset: fonts/FranzSans-Semibold.ttf
+          weight: 600
+        - asset: fonts/FranzSans-Bold.ttf
+          weight: 700
 
   assets:
     - assets/img/agriculture.webp
