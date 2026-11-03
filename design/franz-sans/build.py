@@ -64,8 +64,10 @@ def D(a, *bs):
     return a
 
 
-def I(a, b):
-    return pathops.op(a, b, PathOp.INTERSECTION, fix_winding=True)
+def I(a, *bs):
+    for b in bs:
+        a = pathops.op(a, b, PathOp.INTERSECTION, fix_winding=True)
+    return a
 
 
 def poly(pts):
@@ -235,13 +237,14 @@ def hook_left(w, x_stem_r, R, top, bottom, ext):
 def s_shape(w, x0, x1, h, ys):
     """S / s from two half rings. ys = centre of the spine."""
     V, H = w.V, w.H
-    inset = (x1 - x0) * 0.04
-    up = (x0 + inset, x1 - inset, ys - H / 2, h + OV)
+    # point-symmetric construction: two congruent half rings, the lower one is
+    # the upper one rotated by 180 degrees, so the letter cannot lean.
+    up = (x0, x1, ys - H / 2, h + OV)
     lo = (x0, x1, -OV, ys + H / 2)
     cxu, cyu = box_c(*up)
     cxl, cyl = box_c(*lo)
-    upper = D(ring(*up, V, H), wedge(cxu, cyu, -90, 32))
-    lower = D(ring(*lo, V, H), wedge(cxl, cyl, 90, 212))
+    upper = D(ring(*up, V, H), wedge(cxu, cyu, -90, 28))
+    lower = D(ring(*lo, V, H), wedge(cxl, cyl, 90, 208))
     return U(upper, lower)
 
 
@@ -388,7 +391,7 @@ def _R(w):
 
 @glyph("S", "S", 615)
 def _S(w):
-    return s_shape(w, 50, 565, CAP, 372)
+    return s_shape(w, 50, 565, CAP, CAP / 2)
 
 
 @glyph("T", "T", 605)
@@ -631,9 +634,12 @@ def _e(w):
     V, H = w.V, w.H
     box = (45, 525, -OV, XH + OV)
     cx, cy = box_c(*box)
-    yb = cy + 18  # top of the cross bar
-    rg = D(ring(*box, V, H), wedge(cx, yb - H, -36, 0))
-    return U(rg, rect(45 + V / 2, yb - H, 525 - V / 2, yb))
+    yb = round(XH * 0.585)  # top of the cross bar: smaller eye, fuller lower bowl
+    # aperture: everything right of the centre between the bar and a cut
+    # line falling at 38 degrees; the lower stroke runs well round
+    rg = D(ring(*box, V, H), wedge(cx, yb - H, -38, 0))
+    bar = I(rect(45 + V / 2, yb - H, 525, yb), se(*box))
+    return U(rg, bar)
 
 
 @glyph("f", "f", 345)
@@ -739,7 +745,7 @@ def _r(w):
 
 @glyph("s", "s", 510)
 def _s(w):
-    return s_shape(w, 45, 465, XH, 276)
+    return s_shape(w, 45, 465, XH, XH / 2)
 
 
 @glyph("t", "t", 365)
