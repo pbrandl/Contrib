@@ -1,5 +1,7 @@
 # Contrib
 
+> **Successor:** [Pomona](https://github.com/pbrandl/pomona), a serverless peer-to-peer rebuild on Pear, WDK and QVAC.
+
 **Contrib** is a multi-platform application developed using Flutter. It allows users to set up their own [community supported project](https://csx-netzwerk.de/en/) and perform real-time contribution with ease.
 
 ## Features
